@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import ProvinciaCard from './components/ProvinciaCard';
 import {getProvincias} from './services/provinciasApi';
+import './css/App.css'
 
 function App() {
   const [provincias, setProvincias] = useState([]);
@@ -11,14 +12,16 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <p>{provincias.length} provincias disponibles</p>
-      <div>
+      <div className="sidenav">
         {provincias.map((provincia) => (
           <>
           <ProvinciaCard key={provincia.id} provincia={provincia} />
           </>
         ))}
+      </div>
+      <div className="content">
+        <h1>Bienvenido a la aplicación de provincias</h1>
+        <p>Selecciona una provincia para ver más detalles.</p>
       </div>
     </>
   )
