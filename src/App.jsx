@@ -16,9 +16,7 @@ function App() {
     <>
       <div className="sidenav">
         {provincias.map((provincia) => (
-          <>
           <ProvinciaCard key={provincia.id} provincia={provincia} />
-          </>
         ))}
       </div>
       <div className="content">

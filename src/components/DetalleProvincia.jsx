@@ -1,7 +1,12 @@
+import { useParams } from 'react-router-dom'
+
 function DetalleProvincia() {
+  const { id } = useParams()
+
   return (
     <div>
-      <h1>Detalle de la provincia</h1>
+      <h2>Detalle de la provincia</h2>
+      <p>ID recibido: {id}</p>
     </div>
   )
 }
