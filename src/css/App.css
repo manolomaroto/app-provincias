@@ -1,11 +1,14 @@
 
+.home-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+  height: 100vh;
+  overflow-y: auto;
   overflow-x: hidden;
   padding-left: 10px;
   background-color: #111;
@@ -16,6 +19,7 @@
   padding: 16px;
   text-decoration: none;
   display: block;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 .sidenav a:hover {
@@ -31,6 +35,17 @@
 }
 
 .content {
-  margin-left: 200px;
-  padding-left: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0 0 0 20px;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    padding: 20px 12px;
+  }
 }

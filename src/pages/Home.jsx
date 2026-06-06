@@ -12,7 +12,7 @@ function Home() {
   }, [])
 
   return (
-    <>
+    <div className="home-container">
       <div className="sidenav">
         {provincias.map((provincia) => (
           <ProvinciaCard key={provincia.id} provincia={provincia} />
@@ -25,7 +25,7 @@ function Home() {
           <Route path="/provincias/:id" element={<DetalleProvincia />} />
         </Routes>
       </div>
-    </>
+    </div>
   )
 }
 
