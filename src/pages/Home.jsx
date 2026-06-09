@@ -6,10 +6,23 @@ import DetalleProvincia from '../components/DetalleProvincia';
 
 function Home() {
   const [provincias, setProvincias] = useState([])
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getProvincias().then((data) => setProvincias(data))
+    getProvincias()
+      .then((data) => setProvincias(data))
+      .catch((error) => setError(error))
+      .finally(() => setCargando(false));
   }, [])
+
+  if (cargando) {
+    return <div>Cargando...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="home-container">
