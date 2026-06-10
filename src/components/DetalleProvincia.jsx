@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProvinciaById } from '../services/provinciasApi'
+import { useProvincias } from '../context/ProvinciasContext'
 
 function DetalleProvincia() {
   const { id } = useParams()
+  const { provincias } = useProvincias()
   const [provincia, setProvincia] = useState(null)
 
   useEffect(() => {
-    getProvinciaById(id).then(data => setProvincia(data))
-  }, [id])
+    const provinciaEncontrada = provincias.find(p => p.id === parseInt(id))
+    setProvincia(provinciaEncontrada)
+  }, [id, provincias])
+
+  if (!provincia) {
+    return <div>Provincia no encontrada</div>;
+  }
+
 
   return (
     <div>

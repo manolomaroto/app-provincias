@@ -1,20 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import ProvinciaCard from '../components/ProvinciaCard';
-import { getProvincias } from '../services/provinciasApi';
 import DetalleProvincia from '../components/DetalleProvincia';
+import { useProvincias } from '../context/ProvinciasContext';
 
 function Home() {
-  const [provincias, setProvincias] = useState([])
-  const [cargando, setCargando] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    getProvincias()
-      .then((data) => setProvincias(data))
-      .catch((error) => setError(error))
-      .finally(() => setCargando(false));
-  }, [])
+    const { provincias, cargando, error } = useProvincias();
 
   if (cargando) {
     return <div>Cargando...</div>;
