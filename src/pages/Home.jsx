@@ -1,7 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { RoutesDetalle} from '../routes/AppRoutes';
 import { useEffect, useState } from 'react'
 import ProvinciaCard from '../components/ProvinciaCard';
-import DetalleProvincia from '../components/DetalleProvincia';
 import { useProvincias } from '../context/ProvinciasContext';
 
 function Home() {
@@ -25,9 +24,7 @@ function Home() {
       <div className="content">
         <h1>Bienvenido a la aplicación de provincias</h1>
         <p>Selecciona una provincia para ver más detalles.</p>
-        <Routes>
-          <Route path="/provincias/:id" element={<DetalleProvincia />} />
-        </Routes>
+        <RoutesDetalle />
       </div>
     </div>
   )

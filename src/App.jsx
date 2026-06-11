@@ -1,17 +1,11 @@
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import {AppRoutes} from './routes/AppRoutes'
 
 import './css/App.css'
 
 function App() {
   return (
     <>
-        <Routes>
-          <Route path="/*" element={<Home />} />
-          {/* 
-          <Route path="/comunidadesAutonomas" element={<ComunidadesAutonomas />} />
-          <Route path="/actualizar" element={<ActualizarProvincia />} /> */}
-        </Routes>
+        <AppRoutes />
     </>
   )
 }
