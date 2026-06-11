@@ -2,15 +2,17 @@ import axios from 'axios';
 import { createContext, useState, useEffect} from 'react';
 import { useContext } from 'react';
 
+
 export const ProvinciasContext = createContext();
 
 export const ProvinciasProvider = ({ children }) => {
+    const API_URL = import.meta.env.VITE_API_URL;
   const [provincias, setProvincias] = useState([]);
   const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get('/api/provincias')
+        axios.get(API_URL)
             .then(response => setProvincias(response.data))
             .catch(error => setError(error))
             .finally(() => setCargando(false));
